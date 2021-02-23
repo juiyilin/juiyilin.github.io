@@ -1,0 +1,160 @@
+head,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.nav {
+    font-size: 20px;
+    display: flex;
+    padding: 5px 0;
+    height: 50px;
+
+}
+
+#left {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+    text-align: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+#right {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    align-items: center;
+
+}
+
+#icon {
+    display: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+#right li {
+    padding: 0 10px;
+}
+
+.banner {
+    font-size: 40px;
+    background-color: rgb(219, 238, 255);
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.content {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: rgb(219, 238, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 風景圖，寬度與藍框相同，高度可縮放 */
+.img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+    font-size: 20px;
+}
+
+
+
+
+@media (min-width:1200px) {
+    .content {
+        width: 1200px;
+
+    }
+
+    .card {
+        width: 280px;
+        height: 220px;
+        margin: 10px;
+    }
+
+
+}
+
+@media(max-width:1200px) {
+    #right li {
+        padding: 0 8px;
+    }
+
+    .content {
+        width: 90%;
+    }
+
+    .card {
+        max-width: 46%;
+        /* height: 10px; */
+        margin: 2.5% 2%;
+
+    }
+
+
+
+    .card-text {
+        padding: 2% 0;
+    }
+
+}
+
+@media(max-width:600px) {
+
+    #right {
+        display: none;
+    }
+
+
+    #icon {
+        display: flex;
+        justify-content: flex-end;
+        width: 50%;
+        align-items: center;
+    }
+
+    /* 漢堡icon */
+    #icon img {
+        height: 100%;
+    }
+
+    .card {
+        max-width: 96%;
+        margin: 5% 2%;
+
+    }
+
+
+}
