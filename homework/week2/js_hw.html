@@ -59,7 +59,7 @@
 
         // 3
         function maxProduct(nums) {
-            let result = 1;
+            let result = nums[0] * nums[1];
             for (let i = 0; i < nums.length - 1; i++) {
                 for (let j = i + 1; j < nums.length; j++) {
                     let multiple = nums[i] * nums[j]
@@ -70,6 +70,7 @@
             };
             console.log(result);
         }
+
         maxProduct([5, 20, 2, 6]); // 得到 120 因為 20 和 6 相乘得到最大值
         maxProduct([10, -20, 0, 3]); // 得到 30 因為 10 和 3 相乘得到最大值
 

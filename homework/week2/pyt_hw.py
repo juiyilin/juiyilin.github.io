@@ -46,7 +46,7 @@ avg({
 
 # 3
 def maxProduct(nums):
-    result=1
+    result=nums[0]*nums[1]
     for i in range(len(nums)):
         for j in nums[i+1:]:
             multiple=nums[i]*j
