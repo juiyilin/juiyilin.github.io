@@ -65,7 +65,7 @@ li {
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
-    margin: 0 auto;
+    margin: 50px auto;
 }
 
 .card {
@@ -85,6 +85,7 @@ li {
     object-fit: cover;
     width: 100%;
     height: 100%;
+
 }
 
 .card-text {
@@ -93,10 +94,21 @@ li {
     justify-content: center;
     height: 20%;
     text-align: center;
-    border: 1px solid red;
 }
 
+#btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
 
+#btn button {
+    background-color: rgb(224, 224, 224);
+    padding: 15px;
+    width: 150px;
+    border-radius: 5px;
+    border: none;
+}
 
 
 @media (min-width:1200px) {
@@ -119,19 +131,18 @@ li {
 
     .content {
         width: 90%;
+        justify-content: space-evenly;
     }
 
     .card {
-        max-width: 46%;
-        margin: 2.5% 2%;
-
+        width: 40%;
+        margin-bottom: 20px;
     }
 
 
 
     .card-text {
-        /* padding: 2% 0; */
-        font-size: 20px;
+        font-size: 18px;
     }
 
 }
@@ -156,9 +167,7 @@ li {
     }
 
     .card {
-        max-width: 96%;
-        margin: 5% 2%;
-
+        width: 100%;
     }
 
 
