@@ -97,17 +97,21 @@ li {
 }
 
 #btn {
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
     margin-bottom: 30px;
+    width: 125px;
 }
 
 #btn button {
     background-color: rgb(224, 224, 224);
     padding: 15px;
-    width: 150px;
-    border-radius: 5px;
     border: none;
+    width: 100%;
+}
+
+#btn button:hover {
+    /* border: solid 2px rgb(161, 161, 161) */
+    box-shadow: 0 0 5px rgb(100, 100, 100);
 }
 
 
