@@ -1,4 +1,4 @@
-let url = 'https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json';
+let srcurl = 'https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json';
 let count = 1;
 
 
@@ -41,7 +41,7 @@ async function fetchdata(url) {
     return response.json();
 
 };
-let jsondata = fetchdata(url)
+let jsondata = fetchdata(srcurl)
 //console.log(jsondata); 
 //後續用.then()取得PromiseResult的值
 
