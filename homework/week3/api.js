@@ -38,12 +38,12 @@ function showdata(data, cur, ct) {
 
 async function fetchdata(url) {
     let response = await fetch(url);
-    //let d = await 
     return response.json();
 
 };
 let jsondata = fetchdata(url)
-console.log(jsondata); //用.then()取得PromiseResult的值
+//console.log(jsondata); 
+//後續用.then()取得PromiseResult的值
 
 window.addEventListener('load', function () {
     jsondata.then(function (data) {
@@ -56,7 +56,7 @@ btn.addEventListener('click', function () {
     jsondata.then(function (data) {
         //取得網頁目前的資料筆數
         let curCount = document.getElementsByClassName('card').length;
-        console.log('.card:', curCount);
+        //console.log('.card:', curCount);
         count += 1;
         showdata(data, curCount, count);
 
