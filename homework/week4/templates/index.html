@@ -1,0 +1,27 @@
+{% extends 'frame.html'%}
+
+
+{% block top_text %}歡迎光臨，請輸入帳號密碼{% endblock top_text%}
+{% block content%}
+
+
+<form id="login-form" method="post" action="/signin">
+
+    <div id="login-text">登入系統</div>
+    <div id="input-block">
+        <div class="form-text">
+            帳號<input type="text" name="account">
+        </div>
+
+        <div class="form-text">
+            密碼<input type="password" name="password">
+        </div>
+    </div>
+    <button type="submit">登入</button>
+    <!-- <button type="submit">登入</button> -->
+
+
+</form>
+
+
+{% endblock content%}
