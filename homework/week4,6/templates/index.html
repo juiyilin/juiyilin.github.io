@@ -1,0 +1,42 @@
+{% extends 'frame.html'%}
+
+
+{% block top_text %}歡迎光臨，請註冊登入系統{% endblock top_text%}
+{% block content%}
+
+<form class="login-form" action="/signup" method="post">
+    <div class="index-text">註冊帳號</div>
+    <div class="input-block">
+        <div class="form-text">
+            姓名 <input type="text" name="name">
+        </div>
+        <div class="form-text">
+            帳號 <input type="text" name="username">
+        </div>
+        <div class="form-text">
+            密碼 <input type="password" name="password">
+        </div>
+    </div>
+    <button type="submit">註冊</button>
+</form>
+<hr>
+<form class="login-form" method="post" action="/signin">
+
+    <div class="index-text">登入系統</div>
+    <div class="input-block">
+        <div class="form-text">
+            帳號 <input type="text" name="username">
+        </div>
+
+        <div class="form-text">
+            密碼 <input type="password" name="password">
+        </div>
+    </div>
+    <button type="submit">登入</button>
+    <!-- <button type="submit">登入</button> -->
+
+
+</form>
+
+
+{% endblock content%}

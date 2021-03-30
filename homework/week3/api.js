@@ -1,4 +1,4 @@
-let srcurl = 'https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json';
+const srcurl = 'https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json';
 let count = 1;
 
 
