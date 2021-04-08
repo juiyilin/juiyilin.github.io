@@ -1,10 +1,10 @@
 from flask import Flask, render_template,request,redirect,url_for,session
-import os
+import os,json
 from dbload import db,User
-
+from password import username,password
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:scu02151356@localhost/website'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://{username}:{password}@localhost/website'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db.init_app(app)
 
@@ -15,12 +15,10 @@ session={
     'password':None,
     'login_status':False
 }
-
 @app.route('/')
 def index():
-    if 'login_status' in session:
-        if session['login_status']:
-            return redirect(url_for('success'))
+    if session['login_status']:
+        return redirect(url_for('success'))
     return render_template('index.html')
 
 @app.route('/member')
@@ -100,9 +98,50 @@ def signout():
     print('signout:',session)
     return redirect(url_for('index'))
     
+@app.route('/api/users')
+def api():
+    if session['login_status']==False:
+        return redirect(url_for('index'))
+    username=request.args.get('username','')
+    render_data={}
+    user_data=User.query.filter_by(username=username).first()
+    if user_data!=None:
+        render_data['data']={
+            'id':user_data.id,
+            'name':user_data.name,
+            'username':user_data.username
+        }
+    else:
+        render_data['data']=None
+    print(user_data)
+    render_data=json.dumps(render_data,ensure_ascii=False) 
+    return render_data
+
+@app.route('/api/user', methods=['POST'])
+def update():
+    update_result={}
+    if request.json:
+        print('now user:',session) #session['name']
+        print('POST data',request.json['name'])
+
+        match=User.query.filter_by(name=session['name']).first()
+        print('match',match.name)
+
+        #修改
+        match.name=request.json['name']
+        db.session.commit()
+        session['name']=match.name
+
+        #回傳
+        update_result['ok']=True
+        update_result=json.dumps(update_result,ensure_ascii=False)
+        
+    else:
+        print("fail")
+        update_result['error']=True
+    
+    return update_result
+    
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=3000, debug=True)
-    
-
- 

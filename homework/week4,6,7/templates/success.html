@@ -1,0 +1,26 @@
+{% extends 'frame.html'%}
+{% block top_text%}
+{{'歡迎光臨，這是會員頁'}}
+{% endblock %}
+{% block content%}
+<div class="content">
+    <div class="show-text"><span>{{name}}</span>，歡迎登入系統</div>
+    <a href="/signout">登出系統</a>
+    <br>
+    <br>
+    <div class="index-text">查詢會員姓名</div>
+    <div class="form-text">
+        <input type="text" id="input-username" name='username'>
+        <button type="submit" id="search">查詢</button>
+        <button type="submit" id="clean">清除</button>
+    </div>
+    <br><br>
+    <div class="index-text">更新我的姓名</div>
+    <div class="form-text">
+        <input type="text" id="update-username" name="update">
+        <button type="submit" id="update">更新</button>
+
+    </div>
+</div>
+<script src="../static/api.js"></script>
+{% endblock %}

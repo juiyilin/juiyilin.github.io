@@ -1,13 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 from datetime import datetime
+from password import username,password
 
 
 if __name__ != '__main__':    
     db = SQLAlchemy()
 else:
     app=Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:scu02151356@localhost/website'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://{username}:{password}@localhost/website'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db = SQLAlchemy(app)
 
