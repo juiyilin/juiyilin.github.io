@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request,redirect,url_for,session
+from flask import Flask, render_template,request,redirect,url_for,session,jsonify
 import os,json
 from dbload import db,User
 from password import username,password
@@ -114,7 +114,7 @@ def api():
     else:
         render_data['data']=None
     print(user_data)
-    render_data=json.dumps(render_data,ensure_ascii=False) 
+    render_data=jsonify(render_data) 
     return render_data
 
 @app.route('/api/user', methods=['POST'])
@@ -134,7 +134,7 @@ def update():
 
         #回傳
         update_result['ok']=True
-        update_result=json.dumps(update_result,ensure_ascii=False)
+        update_result=jsonify(update_result)
         
     else:
         print("fail")

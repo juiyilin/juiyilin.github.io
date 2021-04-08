@@ -1,7 +1,7 @@
 // function
 async function fetchData(fetchfunc) {
     let data = await fetchfunc;
-    let textdata = data.text();
+    let textdata = data.json();
     return textdata
 }
 
@@ -33,14 +33,13 @@ btn.addEventListener('click', function () {
     let url = '/api/users?username=' + name;
 
     let getData = fetchData(fetch(url)); // promise
-    getData.then(function (data) { //typeof(data)=string
-        data = JSON.parse(data)
+    getData.then(function (jsonData) {
 
         let text;
         // 資料庫有資料
-        if (data.data != null) {
-            let name = data.data.name;
-            let username = data.data.username;
+        if (jsonData.data != null) {
+            let name = jsonData.data.name;
+            let username = jsonData.data.username;
             //console.log(name, username);
             text = `${name} (${username})`;
 
@@ -88,10 +87,7 @@ updateBtn.addEventListener('click', function () {
             'content-type': 'application/json'
         }
     }))
-    postData.then(textData => { //string
-        textData = textData.replaceAll('&#34;', '"');
-        let jsonData = JSON.parse(textData);
-
+    postData.then(jsonData => {
         // 刪除上一次的結果文字
         deleteText(2)
 
